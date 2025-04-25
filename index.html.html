@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letters from the Margins: Voices of the Forgotten Front</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Century+Gothic:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles and Variables */
+        :root {
+            /* Color palette inspired by historical photographs */
+            --sepia-light: #e0d2b4;
+            --sepia-medium: #d3b88c;
+            --sepia-dark: #b89f65;
+            --khaki-light: #bfbd9f;
+            --khaki-medium: #a3a284;
+            --khaki-dark: #7d7d63;
+            --red-vintage: #a23e48;
+            --red-dark: #6e2b33;
+            --neutral-light: #f5f5f0;
+            --neutral-medium: #e0e0d8;
+            --neutral-dark: #3c3c3c;
+            --paper-aged: #f8f4e9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--neutral-dark) ;
+            background-color: var(--paper-aged);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Century Gothic', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--neutral-dark);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--red-vintage);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: var(--red-vintage);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--red-dark);
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section:nth-child(even) {
+            background-color: var(--neutral-light);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--neutral-dark);
+            color: var(--neutral-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Century Gothic', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--sepia-light);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--neutral-light);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--sepia-light);
+            text-decoration: none;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--neutral-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--neutral-dark);
+            color: var(--neutral-light);
+            padding: 6rem 0;
+            background-image: linear-gradient(rgba(60, 60, 60, 0.8), rgba(60, 60, 60, 0.8)), url('https://placeholder.com/1200x600') ;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--sepia-light);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--red-vintage);
+            color: var(--neutral-light);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--red-dark);
+            text-decoration: none;
+            color: var(--neutral-light);
+        }
+
+        /* Project Overview */
+        .overview-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .overview-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .overview-image {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--sepia-medium);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neutral-dark);
+            font-weight: bold;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Letter Categories */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .category-card {
+            background-color: var(--neutral-light);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-image {
+            height: 200px;
+            background-color: var(--sepia-medium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neutral-dark);
+            font-weight: bold;
+        }
+
+        .category-content {
+            padding: 1.5rem;
+        }
+
+        /* Creative Elements Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            aspect-ratio: 1;
+            background-color: var(--sepia-medium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neutral-dark);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover::after {
+            content: '🔍 Click to zoom';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        /* Historical Context */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--khaki-medium);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--red-vintage);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 1rem;
+            background-color: var(--neutral-light);
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--red-vintage);
+        }
+
+        /* Reflective Analysis */
+        .analysis-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .analysis-column {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .theme-card {
+            background-color: var(--neutral-light);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-card h3 {
+            border-bottom: 2px solid var(--sepia-medium);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* About Creator */
+        .creator-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .creator-image {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            height: 300px;
+            background-color: var(--sepia-medium);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neutral-dark);
+            font-weight: bold;
+            margin: 0 auto;
+        }
+
+        .creator-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--neutral-dark);
+            color: var(--neutral-light);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: 'Century Gothic', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sepia-light);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-link {
+            margin: 0 1rem;
+        }
+
+        .footer-link a {
+            color: var(--neutral-light);
+        }
+
+        .footer-link a:hover {
+            color: var(--sepia-light);
+        }
+
+        .copyright {
+            font-size: 0.875rem;
+            color: var(--neutral-medium);
+        }
+
+        /* Modal for Zoomable Images */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--sepia-medium);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neutral-dark);
+            font-weight: bold;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: var(--neutral-light);
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Interactive Letter */
+        .letter-container {
+            background-color: var(--paper-aged);
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            position: relative;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .letter-header {
+            text-align: right;
+            margin-bottom: 1.5rem;
+        }
+
+        .letter-content {
+            font-family: 'Century Gothic', serif;
+            line-height: 1.8;
+        }
+
+        .letter-signature {
+            margin-top: 2rem;
+            text-align: right;
+            font-style: italic;
+        }
+
+        .censored {
+            background-color: var(--neutral-dark);
+            color: var(--neutral-dark);
+            padding: 0 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .censored:hover {
+            background-color: rgba(60, 60, 60, 0.7);
+        }
+
+        .censored.revealed {
+            background-color: transparent;
+            color: var(--red-vintage);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--neutral-dark);
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-item {
+                margin: 0.5rem 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item:nth-child(odd)::after {
+                left: 21px;
+            }
+
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .section {
+                padding: 2rem 0;
+            }
+
+            .hero {
+                padding: 4rem 0;
+            }
+
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Spirit of Anzac Prize</div>
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#overview" class="nav-link">Overview</a></li>
+                <li class="nav-item"><a href="#letters" class="nav-link">Letters</a></li>
+                <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li class="nav-item"><a href="#history" class="nav-link">History</a></li>
+                <li class="nav-item"><a href="#analysis" class="nav-link">Analysis</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Letters from the Margins: Voices of the Forgotten Front</h1>
+            <p class="hero-subtitle">Exploring the personal correspondence of Australian soldiers, nurses, and civilians during the Great War</p>
+            <a href="#overview" class="btn">Explore Project</a>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="section" id="overview">
+        <div class="container">
+            <h2>Project Overview</h2>
+            <div class="overview-content">
+                <div class="overview-text">
+                    <p>This portfolio project explores the significance of personal correspondence during World War I, focusing on letters written by Australian soldiers, nurses, and civilians. These letters provide intimate glimpses into the experiences, emotions, and perspectives of those who lived through one of history's most devastating conflicts.</p>
+                    <p>Personal letters from the war front represent more than just communication—they are historical artifacts that capture authentic voices often overlooked in official narratives. Through careful analysis of these primary sources, we can better understand the human dimension of war and its impact on individuals and communities.</p>
+                    <p>The project examines how these letters reveal the complex emotions, daily realities, and changing perspectives of Australians during the Great War. By studying correspondence from different perspectives—soldiers in the trenches, nurses in field hospitals, and families at home—we gain a more complete picture of wartime experiences.</p>
+                </div>
+                <div class="overview-image">
+                    [Placeholder for historical image of Australian soldier writing a letter in the trenches]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Letter Categories -->
+    <section class="section" id="letters">
+        <div class="container">
+            <h2>Letter Categories</h2>
+            <p>This project examines four distinct categories of wartime correspondence, each offering unique perspectives on the Australian experience of World War I.</p>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-image">
+                        [Placeholder for image of soldier's letters]
+                    </div>
+                    <div class="category-content">
+                        <h3>Soldiers' Letters</h3>
+                        <p>Correspondence from Australian soldiers serving on the Western Front and at Gallipoli, revealing their daily experiences, camaraderie, fears, and hopes. These letters often balanced honesty with reassurance for loved ones at home.</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        [Placeholder for image of nurse's letters]
+                    </div>
+                    <div class="category-content">
+                        <h3>Nurses' Accounts</h3>
+                        <p>Letters from Australian nurses serving in field hospitals and casualty clearing stations, documenting their crucial role in the war effort and providing a female perspective on the conflict's medical realities.</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        [Placeholder for image of family letters]
+                    </div>
+                    <div class="category-content">
+                        <h3>Home Front Correspondence</h3>
+                        <p>Letters from families, sweethearts, and friends in Australia, showing how the war affected those left behind and how they maintained connections with loved ones overseas despite distance and uncertainty.</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        [Placeholder for image of censored letter]
+                    </div>
+                    <div class="category-content">
+                        <h3>Censored Communications</h3>
+                        <p>Examples of letters that were censored by military authorities, revealing the tension between personal expression and wartime security concerns, and how writers developed codes to circumvent restrictions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Letter Example -->
+    <div class="container">
+        <div class="letter-container">
+            <div class="letter-header">
+                <p>Somewhere in France<br>August 15, 1916</p>
+            </div>
+            <div class="letter-content">
+                <p>My dearest Mother,</p>
+                <p>I hope this letter finds you well. We have been <span class="censored">moved to a new position near Pozières</span> and the weather has finally improved after weeks of rain. The mud here is unlike anything I've ever seen—it clings to everything and makes every step a struggle.</p>
+                <p>Yesterday we received a package from the Red Cross with some biscuits and chocolate. Such small comforts mean the world to us here. The <span class="censored">constant artillery fire</span> makes sleep difficult, but we manage when we can.</p>
+                <p>Please don't worry too much about me. I am keeping my spirits up and the mates in my unit are a good bunch of fellows. We look after each other as best we can.</p>
+                <p>Give my love to Father and tell little Edith I received her drawing. It brightened not just my day but the whole dugout's.</p>
+                <div class="letter-signature">
+                    <p>Your loving son,<br>Jack</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Creative Elements Gallery -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <h2>Creative Elements Gallery</h2>
+            <p>This gallery showcases supplementary materials that enhance our understanding of wartime correspondence, including photographs, postcards, and other artifacts that accompanied or complemented written letters.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-description="Postcard from Paris sent by an Australian soldier on leave, 1917">
+                    [Postcard from Paris, 1917]
+                </div>
+                <div class="gallery-item" data-description="Hand-drawn map included in a letter from a soldier describing his position on the Western Front">
+                    [Hand-drawn trench map]
+                </div>
+                <div class="gallery-item" data-description="Pressed flower sent from France to a sweetheart in Melbourne, preserved between the pages of a letter">
+                    [Pressed flower from France]
+                </div>
+                <div class="gallery-item" data-description="Photograph of Australian nurses at a field hospital near the Western Front, 1916">
+                    [Nurses at field hospital]
+                </div>
+                <div class="gallery-item" data-description="Envelope showing military censorship stamps and markings">
+                    [Censored envelope]
+                </div>
+                <div class="gallery-item" data-description="Victory medal belonging to an Australian soldier, photographed alongside his letters home">
+                    [Victory medal]
+                </div>
+                <div class="gallery-item" data-description="Newspaper clipping sent from home to a soldier, reporting on fundraising efforts in his hometown">
+                    [Newspaper clipping]
+                </div>
+                <div class="gallery-item" data-description="Page from a soldier's diary complementing his letters home with more candid observations">
+                    [Diary page]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historical Context -->
+    <section class="section" id="history">
+        <div class="container">
+            <h2>Historical Context</h2>
+            <p>Understanding the historical timeline of World War I helps contextualize the letters and their content, showing how events on the battlefield influenced personal correspondence.</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <p class="timeline-date">August 4, 1914</p>
+                        <p>Britain declares war on Germany, automatically involving Australia as part of the British Empire. Initial wave of enthusiasm and patriotism reflected in early letters.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <p class="timeline-date">April 25, 1915</p>
+                        <p>ANZAC landing at Gallipoli. Letters from this period show shock at the reality of combat, but also pride in Australian identity forming under fire.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <p class="timeline-date">December 1915</p>
+                        <p>Evacuation from Gallipoli. Correspondence reveals mixed feelings of relief and disappointment among troops.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <p class="timeline-date">July 1916</p>
+                        <p>Battle of the Somme begins. Letters from this period often contain coded references to avoid censorship of the horrific conditions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <p class="timeline-date">October 1917</p>
+                        <p>Battle of Passchendaele. Correspondence shows increasing war-weariness and more realistic attitudes toward the conflict.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <p class="timeline-date">November 11, 1918</p>
+                        <p>Armistice signed. Letters express relief, celebration, but also uncertainty about the future and processing of trauma.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reflective Analysis -->
+    <section class="section" id="analysis">
+        <div class="container">
+            <h2>Reflective Analysis</h2>
+            <p>This analysis examines recurring themes and patterns found across the collected correspondence, revealing deeper insights into the Australian wartime experience.</p>
+            <div class="analysis-content">
+                <div class="analysis-column">
+                    <div class="theme-card">
+                        <h3>National Identity</h3>
+                        <p>Letters reveal the emergence of a distinct Australian identity separate from British imperial identity. Soldiers often contrasted themselves with British troops, emphasizing Australian resourcefulness, egalitarianism, and irreverence toward authority.</p>
+                    </div>
+                    <div class="theme-card">
+                        <h3>Censorship and Truth</h3>
+                        <p>Correspondence shows the tension between honesty and reassurance. Writers developed sophisticated strategies to communicate forbidden information, including code words, oblique references, and irony that could bypass censors while conveying meaning to informed readers.</p>
+                    </div>
+                </div>
+                <div class="analysis-column">
+                    <div class="theme-card">
+                        <h3>Changing Perspectives</h3>
+                        <p>Chronological analysis of letters shows evolution in attitudes toward the war. Early patriotic enthusiasm often gave way to more nuanced, sometimes cynical views as the conflict dragged on, particularly after major battles with high casualty rates.</p>
+                    </div>
+                    <div class="theme-card">
+                        <h3>Emotional Resilience</h3>
+                        <p>Letters demonstrate remarkable psychological resilience through humor, understatement, and focus on small comforts. Writers often employed these strategies to maintain morale and protect loved ones from the worst realities of war.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Creator -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2>About the Creator</h2>
+            <div class="creator-content">
+                <div class="creator-image">
+                    [Placeholder for Darcy Haddrick's photo]
+                </div>
+                <div class="creator-text">
+                    <p>This portfolio project was created by Darcy Haddrick for the Spirit of Anzac Prize. As a student with a passion for Australian history, I became fascinated by the personal stories behind the grand narratives of World War I.</p>
+                    <p>My research process involved examining archival materials from the Australian War Memorial, State Library collections, and family collections generously shared by descendants of WWI veterans. Each letter provided a window into individual experiences that collectively help us understand the broader impact of the war on Australian society.</p>
+                    <p>This project has deepened my appreciation for the power of primary sources in historical research and the importance of preserving personal narratives alongside official histories. The voices captured in these letters—sometimes eloquent, sometimes simple, always authentic—deserve to be heard and remembered.</p>
+                    <p>I would like to thank my history teacher, Ms. Thompson, for her guidance throughout this project, as well as the families who shared their precious letters and photographs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Spirit of Anzac Prize</div>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="#overview">Overview</a></li>
+                    <li class="footer-link"><a href="#letters">Letters</a></li>
+                    <li class="footer-link"><a href="#gallery">Gallery</a></li>
+                    <li class="footer-link"><a href="#history">History</a></li>
+                    <li class="footer-link"><a href="#analysis">Analysis</a></li>
+                    <li class="footer-link"><a href="#about">About</a></li>
+                </ul>
+                <p class="copyright">© 2025 Darcy Haddrick | Spirit of Anzac Prize Portfolio Project</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content" id="modalContent"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                navMenu.classList.remove('active');
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Image Modal
+        const modal = document.getElementById('imageModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeBtn = document.querySelector('.close');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                modal.style.display = 'block';
+                modalContent.textContent = item.dataset.description || item.textContent;
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Interactive Censored Text
+        const censoredElements = document.querySelectorAll('.censored');
+        
+        censoredElements.forEach(element => {
+            element.addEventListener('click', () => {
+                element.classList.toggle('revealed');
+            });
+        });
+
+        // Page Transition Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
